@@ -28,6 +28,7 @@ export const NTInput = ({ formData, handleChange, label, elname }: Props) => {
           name={elname}
           value={formData[elname] || ``}
           onChange={handleChange}
+          data-testid={elname}
         />
       </label>
     </div>

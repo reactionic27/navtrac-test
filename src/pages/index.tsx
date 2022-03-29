@@ -52,6 +52,7 @@ export default function Home() {
         <form
           onSubmit={submitData}
           className="grid grid-cols-6 sm:grid-cols-12"
+          data-testid="truck-form"
         >
           <NTInput
             label="Name"
@@ -93,6 +94,7 @@ export default function Home() {
             <button
               className="w-full	p-3 text-white rounded-md bg-red-500 hover:bg-red-700"
               type="submit"
+              data-testid="submit-button"
             >
               Sign up
             </button>
