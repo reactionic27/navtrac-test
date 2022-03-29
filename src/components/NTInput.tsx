@@ -2,12 +2,12 @@ import { ChangeEvent } from 'react';
 
 type Props = {
   formData: Record<string, string>;
-  handleChange: (event: ChangeEvent) => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   label: string;
-  elname: string;
+  elName: string;
 };
 
-export const NTInput = ({ formData, handleChange, label, elname }: Props) => {
+export const NTInput = ({ formData, handleChange, label, elName }: Props) => {
   return (
     <div className="col-start-2 col-end-6 md:col-start-5 md:col-end-9 mt-4">
       <label className="block">
@@ -25,10 +25,10 @@ export const NTInput = ({ formData, handleChange, label, elname }: Props) => {
           "
           placeholder=""
           required
-          name={elname}
-          value={formData[elname] || ``}
+          name={elName}
+          value={formData[elName] || ``}
           onChange={handleChange}
-          data-testid={elname}
+          data-testid={elName}
         />
       </label>
     </div>

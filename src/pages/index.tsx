@@ -1,45 +1,37 @@
 import { NTInput } from '@/components/NTInput';
 import Head from 'next/head';
-import { ChangeEvent, FormEvent, useReducer } from 'react';
-
-const formReducer = (state: any, event: any) => {
-  return {
-    ...state,
-    [event.name]: event.value,
-  };
-};
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 export default function Home() {
-  const [formData, setFormData] = useReducer(formReducer, {});
+  const [formData, setFormData] = useState({});
 
-  const handleChange = (event: ChangeEvent) => {
-    if (event.target instanceof HTMLInputElement) {
-      setFormData({
-        name: event.target.name,
-        value: event.target.value,
-      });
-    }
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const submitData = (event: FormEvent) => {
+  const submitData = async (event: FormEvent) => {
     event.preventDefault();
     const requestOptions = {
       method: `POST`,
       headers: { 'Content-Type': `application/json` },
       body: JSON.stringify(formData),
     };
-    fetch(`https://624130af9b450ae2743c2ff5.mockapi.io/trucks`, requestOptions)
-      .then((response) => response.json())
-      .then(() =>
-        setFormData({
-          name: ``,
-          phoneNumber: ``,
-          company: ``,
-          loadNumber: ``,
-          customerName: ``,
-          containerNumber: ``,
-        }),
-      );
+    await fetch(
+      `https://624130af9b450ae2743c2ff5.mockapi.io/trucks`,
+      requestOptions,
+    );
+    setFormData({
+      name: ``,
+      phoneNumber: ``,
+      company: ``,
+      loadNumber: ``,
+      customerName: ``,
+      containerNumber: ``,
+    });
   };
 
   return (
@@ -56,37 +48,37 @@ export default function Home() {
         >
           <NTInput
             label="Name"
-            elname="name"
+            elName="name"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Phone Number"
-            elname="phoneNumber"
+            elName="phoneNumber"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Hauling Company"
-            elname="company"
+            elName="company"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Load/Booking Number"
-            elname="loadNumber"
+            elName="loadNumber"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Customer Name"
-            elname="customerName"
+            elName="customerName"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Container Number"
-            elname="containerNumber"
+            elName="containerNumber"
             formData={formData}
             handleChange={handleChange}
           />
