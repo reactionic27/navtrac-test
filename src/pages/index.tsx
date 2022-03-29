@@ -1,6 +1,6 @@
 import { NTInput } from '@/components/NTInput';
 import Head from 'next/head';
-import { FormEvent, useReducer } from 'react';
+import { ChangeEvent, FormEvent, useReducer } from 'react';
 
 const formReducer = (state: any, event: any) => {
   return {
@@ -12,7 +12,7 @@ const formReducer = (state: any, event: any) => {
 export default function Home() {
   const [formData, setFormData] = useReducer(formReducer, {});
 
-  const handleChange = (event: KeyboardEvent) => {
+  const handleChange = (event: ChangeEvent) => {
     if (event.target instanceof HTMLInputElement) {
       setFormData({
         name: event.target.name,
@@ -42,7 +42,6 @@ export default function Home() {
       );
   };
 
-  console.log(`formData.phoneNumber`, formData);
   return (
     <div>
       <div className="grid items-center min-h-screen">
@@ -56,37 +55,37 @@ export default function Home() {
         >
           <NTInput
             label="Name"
-            name="name"
+            elname="name"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Phone Number"
-            name="phoneNumber"
+            elname="phoneNumber"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Hauling Company"
-            name="company"
+            elname="company"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Load/Booking Number"
-            name="loadNumber"
+            elname="loadNumber"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Customer Name"
-            name="customerName"
+            elname="customerName"
             formData={formData}
             handleChange={handleChange}
           />
           <NTInput
             label="Container Number"
-            name="containerNumber"
+            elname="containerNumber"
             formData={formData}
             handleChange={handleChange}
           />

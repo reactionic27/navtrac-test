@@ -1,13 +1,13 @@
-import { Truck } from '@/types';
+import { ChangeEvent } from 'react';
 
 type Props = {
-  formData: Truck;
-  handleChange: (event: any) => void;
+  formData: Record<string, string>;
+  handleChange: (event: ChangeEvent) => void;
   label: string;
-  name: string;
+  elname: string;
 };
 
-export const NTInput = ({ formData, handleChange, label, name }: Props) => {
+export const NTInput = ({ formData, handleChange, label, elname }: Props) => {
   return (
     <div className="col-start-2 col-end-6 md:col-start-5 md:col-end-9 mt-4">
       <label className="block">
@@ -25,8 +25,8 @@ export const NTInput = ({ formData, handleChange, label, name }: Props) => {
           "
           placeholder=""
           required
-          name={name}
-          value={formData.name || ``}
+          name={elname}
+          value={formData[elname] || ``}
           onChange={handleChange}
         />
       </label>
