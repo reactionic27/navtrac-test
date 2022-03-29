@@ -1,0 +1,73 @@
+{
+  "name": "navtrac-test",
+  "description": "A TypeScript project with Next.js and Tailwind CSS",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Richard Jin",
+  "license": "Richard Jin",
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "tailwind css"
+  ],
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "postinstall": "husky install",
+    "commit": "cz",
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "yarn lint --fix",
+      "yarn format"
+    ]
+  },
+  "dependencies": {
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.2.1",
+    "@commitlint/config-conventional": "13.2.0",
+    "@tailwindcss/forms": "0.5.0",
+    "@testing-library/jest-dom": "5.16.3",
+    "@testing-library/react": "12.1.4",
+    "@testing-library/user-event": "13.5.0",
+    "@types/node": "14.17.27",
+    "@types/react": "17.0.30",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "autoprefixer": "10.3.7",
+    "babel-jest": "27.5.1",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "commitizen": "4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-typescript": "2.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-testing-library": "5.1.0",
+    "husky": "7.0.2",
+    "jest": "27.5.1",
+    "lint-staged": "11.2.3",
+    "postcss": "8.3.11",
+    "prettier": "2.4.1",
+    "tailwindcss": "2.2.17",
+    "typescript": "4.4.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
