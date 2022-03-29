@@ -1,17 +1,15 @@
 module.exports = {
-  // preset: 'ts-jest',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  collectCoverage: true,
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest/'],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    '.+\\.(css|scss|png|jpg|svg)$': 'jest-transform-stub',
+  },
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
   },
-  testEnvironment: 'jsdom',
-  // moduleDirectories: ['node_modules', '.'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-    '^.+\\.svg$': 'jest-raw-loader',
-  },
-  transformIgnorePatterns: ['/node_modules/'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-  restoreMocks: true,
 };

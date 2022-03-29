@@ -2,13 +2,11 @@ import { render, screen } from '@testing-library/react';
 import Home from '@/pages/index';
 
 describe(`Home`, () => {
-  it(`renders a heading`, () => {
+  it(`renders a sign up button`, () => {
     render(<Home />);
-
-    const heading = screen.getByRole(`heading`, {
-      name: /welcome to next\.js!/i,
+    const signUpButton = screen.getByRole(`button`, {
+      name: /Sign up/i,
     });
-
-    expect(heading).toBeInTheDocument();
+    expect(signUpButton).toBeInTheDocument();
   });
 });
